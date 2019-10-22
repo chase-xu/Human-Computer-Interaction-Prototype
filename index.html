@@ -4,94 +4,147 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="mobile-web-app-capable" content="yes">
+	<!-- CSS -->
+	<link rel="stylesheet" href="vendor/fontawesome/css/all.css">
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="vendor/jqflipswitch.default.style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="style.css">
+	<!-- JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="vendor/jquery.jqflipswitch.min.js"></script>
 	<script src="main.js"></script>
 	<title>Facelift Prototype</title>
 </head>
-<body>
+<body class="logged-out">
 	<div id="wrap">
 		<header>
 			<!-- Header bar -->
-			<div class="menu-icon"></div>
-			<div class="settings-icon"></div>
-			<div class="email-icon"></div>
-			<div class="notification-icon"></div>
+			<div class="menu-icon">
+				<i class="fas fa-bars"></i>
+			</div>
+			<a href="#" class="settings-icon"><i class="fas fa-cog"></i></a>
+			<a href="#" class="email-icon"><i class="fas fa-envelope"></i></a>
+			<a href="#" class="notification-icon"><i class="fas fa-bell"></i></a>
 			<!-- This one should be right aligned -->
-			<div class="user-icon"></div>
+			<a href="#" class="user-icon logged-out"><i class="fas fa-user"></i></a>
 		</header>
 		<main>
-			<!-- floaters -->
-			<div class="popup-settings">
-				<!-- TODO: -->
+			<div class="popup-wrap">
+				<!-- floaters -->
+				<div class="popup popup-login">
+					<img src="img/uvic-logo.png" class="uvic-logo-login" alt="">
+					<form id="form-login">
+						<div class="form-login-inner">
+							<h3>Sign in to UVic</h3>
+							<div class="fineprint">By signing in you will be authorized to access your applications and web sites that use the Sign in Service. Use is subject to but not limited to the policies and guidelines listed in <a href="#">Policies and guidelines</a>.</div>
+							<div class="input-row">
+								<label for="login-id">Netlink ID:</label><span>Do not include "uvic.ca"</span>
+								<input type="text" name="username" id="login-id">
+							</div>
+							<div class="input-row">
+								<label for="login-password">Password:</label>
+								<input type="password" name="password" id="login-password">
+							</div>
+							<input type="checkbox" name="remember" id="login-remember"><label for="login-remember">Remember me</label>
+						</div>
+						<input type="submit" name="signin" value="Sign in">
+						<input type="submit" name="cancel" value="Cancel">
+					</form>
+				</div>
 			</div>
-			<div class="popup-tiles">
-				<!-- TODO: -->
-			</div>
-			<!-- Content area -->
+			<!-- --------------------------------------------------------------- -->
+			<!-- CONTENT AREA BEGINS -->
+			<!-- --------------------------------------------------------------- -->
 			<div class="tile-wrap">
-				<div class="row row-0">
-					<!-- For this prototype, locking first row to news -->
-					<div id="cell-news">
-						<ul id="cell-tabs">
-							<li id="tab1"><a href="#news-1">Today's Events</a></li>
-							<li id="tab2"><a href="#news-2">Campus News</a></li>
-							<li id="tab3"><a href="#news-3">Important Dates</a></li>
-						</ul>
-						<div id="news-1">
+				<div class="Row Row-0">
+					<div class="Tile Tile-1-2">
+						<!-- For this prototype, locking first row to news -->
+						<div class="TileNews">
+							<!-- Tabs -->
 							<ul>
-								<li>2019 Spring Convocation</li>
-								<li>June 2019 Undergraduate Convocation Schedule</li>
-								<li>Learn to Meditate</li>
+								<li><a href="#news-1">Today's Events</a></li>
+								<li><a href="#news-2">Campus News</a></li>
+								<li><a href="#news-3">Important Dates</a></li>
 							</ul>
-						</div>
-						<div id="news-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique nemo iure consequuntur, corrupti aspernatur numquam quisquam illum mollitia nam, quos odio, vitae velit a! Sed officia nemo est nostrum laudantium!</div>
-						<div id="news-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique nemo iure consequuntur, corrupti aspernatur numquam quisquam illum mollitia nam, quos odio, vitae velit a! Sed officia nemo est nostrum laudantium!</div>
-					</div>
-				</div>
-				<div class="row row-2">
-					<div class="cell cell-1">
-						<div class="cell-content">
-							+
-						</div>
-					</div>
-					<div class="cell cell-2">
-						<div class="cell-content">
-							+
-						</div>
-					</div>
-				</div>
-				<div class="row row-3">
-					<div class="cell cell-1">
-						<div class="cell-content">
-							+
-						</div>
-					</div>
-					<div class="cell cell-2">
-						<div class="cell-content">
-							+
+							<!-- Content -->
+							<div id="news-1">
+								<ul>
+									<li>2019 Spring Convocation</li>
+									<li>June 2019 Undergraduate Convocation Schedule</li>
+									<li>Learn to Meditate</li>
+								</ul>
+							</div>
+							<div id="news-2">
+								<ul>
+									<li>Extended Library Hours</li>
+									<li>Campus closed on July 1st. Happy Canada Day!</li>
+									<li>Starbucks Opening Soon</li>
+								</ul>
+							</div>
+							<div id="news-3">
+								<ul>
+									<li>Graduation Application Deadline July 15</li>
+									<li>Course Drop Deadline June 30</li>
+									<li>July Courses begin on July 2</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row row-4">
-					<div class="cell cell-1">
-						<div class="cell-content">
-							+
+				<div class="Row Row-1">
+					<div class="Tile Tile-1-2">
+						<div class="TileTimetable cell-locked">
+							<h2>Login to view your schedule</h2>
+							<img src="img/lock.png" class="lock-icon" alt="">
 						</div>
 					</div>
-					<div class="cell cell-2">
-						<div class="cell-content">
-							+
+				</div>
+				<div class="Row Row-2">
+					<div class="Tile Tile-1">
+						<div class="TileSimple cell-locked">
+							<img src="img/onecard.png" alt="one card" class="cell-icon">
+							<h3>OneCard</h3>
+							<img src="img/lock.png" class="lock-icon" alt="">
+						</div>
+					</div>
+					<div class="Tile Tile-2">
+						<div class="TileSimple Tile-locked">
+							<img src="img/registration.png" alt="Register" class="cell-icon">
+							<h3>Registration</h3>
+							<img src="img/lock.png" class="lock-icon" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="Row Row-3">
+					<div class="Tile Tile-1-2">
+						<div class="TileNextBus">
+							<h2>Next Bus</h2>
+							<ul class="bus-list">
+								<li data-bus="4"><span class="bus-number">4</span> Uvic/Downtown: Bay A 1:50pm</li>
+								<li data-bus="7"><span class="bus-number">7</span> Uvic/Downton:Bay G 1:48pm</li>
+								<li data-bus="9"><span class="bus-number">9</span> Royal Oak/Uvic: Bay E 1:52pm</li>
+								<li data-bus="11"><span class="bus-number">11</span> Tillicum Mall/Uvic: Bay H 1:58pm</li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</main>
-		<footer>
+		<!-- --------------------------------------------------------------- -->
+		<!-- CONTENT AREA ENDS -->
+		<!-- --------------------------------------------------------------- -->
+		<footer class="customizer-off">
 			<!-- Social Media Buttons -->
+			<div class="footer-inner">
+				<h3>UVic Media</h3>
+				<i class="fab fa-facebook"></i>
+				<i class="fab fa-twitter-square"></i>
+				<i class="fab fa-youtube"></i>
+				<i class="fab fa-instagram"></i>
+			</div>
 		</footer>
 	</div>
 </body>
